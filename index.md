@@ -2,7 +2,7 @@
 
 ## Motivation
 
-![image.png](attachment:1b21e11f-e1ad-414b-881e-b8dce45250d6.png)
+![parking lot](https://github.com/jkim222383/explain_dbscan/blob/main/parking_lot.jpeg?raw=true)
 
 (Image credit to https://unsplash.com/photos/yvfp5YHWGsc)
 
@@ -22,21 +22,21 @@ Let's put this into practice using a concrete example.
 
 ## Step-By-Step
 
-![image.png](attachment:2432167c-bf06-4f13-9f56-d8cb5e046e2a.png)
+![cluster1](https://github.com/jkim222383/explain_dbscan/blob/main/cluster1.png?raw=true)
 
 First, you randomly pick the car in 611. Cars in spots 613 and 609 are within 15 ft of this car, so you are satisfied that car in 611 qualifies as a "core" car. Car in 607 is within 15 ft of car in 609, and car in 614 is within 15 ft of car in 613. Since no unlabelled car is within 15 ft of 607 or 614, you conclude that cars 614, 613, 611, 609, 607 are in this first cluster.
 
-![image.png](attachment:5685e2fa-af3c-4677-b605-85755ef50779.png)
+![noise](https://github.com/jkim222383/explain_dbscan/blob/main/noise.png?raw=true)
 
 Next, you randomly pick the car in 624 (top left corner). Since there is no car within 15 ft of this car aside from itself, this car is not a "core" car. Instead you make a mental note to label this car as being a "noise" car so you don't make the mistake of picking this car again.
 
-![image.png](attachment:10c9b35b-f447-40f2-8435-e53d2f5f1797.png)
+![cluster2](https://github.com/jkim222383/explain_dbscan/blob/main/cluster2.png?raw=true)
 
 Next, you randomly pick the car in 638. Since car in 636 is within 15 ft of this car, you are happy that car in 636 is a "core" car. Car in 656 is within 15 ft of car in 636. Finally, since there is no unlabelled car near 656, you conclude that cars 638, 636, and 656 belong to this second cluster. 
 
 When you continue this process until you are finished labelling all cars as either being a "noise" car or belonging to a cluster, you obtain the final clustering shown below. Note that this picture shows 1 "noise" car (labelled red) and 5 clusters.
 
-![image.png](attachment:a9aa6b72-d636-4cb9-a486-cd33f0c81e0d.png)
+![final_clustering](https://github.com/jkim222383/explain_dbscan/blob/main/final_clustering.png?raw=true)
 
 In a nutshell, this is the process of `DBSCAN`, short for "Density-Based Spatial Clustering of Applications with Noise". The magic of `DBSCAN` is that it can be used without guessing in advance how many clusters there are; this sets `DBSCAN` apart from other clustering processes such as `KMeans`. Instead, `DBSCAN` requires you to specify two settings: 
 
