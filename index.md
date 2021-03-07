@@ -1,4 +1,4 @@
-# What is `DBSCAN` clustering algorithm?
+# What is DBSCAN clustering algorithm?
 
 ## Motivation
 
